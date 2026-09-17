@@ -18,7 +18,9 @@ async function bootstrap() {
     })
   );
 
-  
-  await app.listen(process.env.PORT ?? 3000);
+  const port = process.env.PORT ?? 3000;
+
+  // 2. Escuchar en '0.0.0.0' para que Render detecte la aplicación
+  await app.listen(port, '0.0.0.0');
 }
 await bootstrap();
